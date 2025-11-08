@@ -1,3 +1,9 @@
+# Research projects carried out by AI tools
+
+Each directory in this repo is a separate research project carried out by an LLM tool 
+
+---
+
 ## Updating this README
 
 This README uses [cogapp](https://nedbatchelder.com/code/cog/) to automatically generate project descriptions.
