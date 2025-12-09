@@ -21,7 +21,7 @@ async def send_notification(email: str, background_tasks: BackgroundTasks):
 
 ### 运行
 ```bash
-fastapi dev background_tasks.py
+uv run fastapi dev background_tasks.py
 ```
 访问 `/send-notification/test@example.com`，你会立即收到响应，而 `log.txt` 会在后台被写入。
 
@@ -41,7 +41,13 @@ async def websocket_endpoint(websocket: WebSocket):
 ```
 
 ### 运行
+确保已安装 `websockets` 库：
 ```bash
-fastapi dev websockets_app.py
+uv add websockets
+```
+
+运行应用：
+```bash
+uv run fastapi dev websockets_app.py
 ```
 然后打开浏览器访问 `http://127.0.0.1:8000`。你将看到一个简单的聊天界面，发送的消息会通过 WebSocket 回显。

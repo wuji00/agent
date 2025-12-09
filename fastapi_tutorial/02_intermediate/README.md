@@ -21,7 +21,7 @@ async def read_items(commons: Annotated[dict, Depends(common_parameters)]):
 
 ### 运行
 ```bash
-fastapi dev dependencies.py
+uv run fastapi dev dependencies.py
 ```
 
 ## 2. 数据库集成 (SQL Databases)
@@ -37,14 +37,16 @@ fastapi dev dependencies.py
 4.  **Dependency (`get_db`)**: 创建数据库会话，并在请求结束后关闭它。
 
 ### 运行
-你需要先安装 SQLAlchemy：
-```bash
-pip install sqlalchemy
-```
 
-然后运行应用：
+确保已安装 SQLAlchemy：
 ```bash
-fastapi dev database_app.py
+uv add sqlalchemy
+```
+*(如果按照根目录 `pyproject.toml` 设置，则无需单独安装)*
+
+运行应用：
+```bash
+uv run fastapi dev database_app.py
 ```
 
 这将会在当前目录下创建一个 `test.db` 文件。

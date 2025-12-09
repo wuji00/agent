@@ -1,0 +1,15 @@
+[project]
+name = "fastapi-tutorial"
+version = "0.1.0"
+description = "FastAPI 教程示例代码"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]",
+    "sqlalchemy",
+    "websockets",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
