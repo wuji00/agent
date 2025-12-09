@@ -17,14 +17,36 @@ COPY ./app /code/app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
 ```
 
-## 2. 包含的示例
+## 2. 使用 uv 构建 (可选)
+
+文件：`Dockerfile.uv`
+
+如果你希望加快构建速度，可以使用 `uv` 来安装依赖。
+
+```dockerfile
+FROM python:3.10-slim
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv
+WORKDIR /app
+COPY requirements.txt .
+RUN uv pip install --system --no-cache -r requirements.txt
+COPY ./app /app/app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+
+要使用此 Dockerfile 构建：
+
+```bash
+docker build -f Dockerfile.uv -t myfastapiimage-uv .
+```
+
+## 3. 包含的示例
 
 本目录已经包含了一个完整的示例结构：
 - `app/`：包含源代码 (`main.py`)
 - `requirements.txt`：依赖列表
-- `Dockerfile`：构建指令
+- `Dockerfile` / `Dockerfile.uv`：构建指令
 
-## 3. 构建与运行
+## 4. 构建与运行
 
 ### 构建镜像
 在 `04_deployment` 目录下打开终端，运行：

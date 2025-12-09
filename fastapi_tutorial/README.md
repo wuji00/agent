@@ -17,12 +17,50 @@
 4. [第四章：部署 (Deployment)](./04_deployment/README.md)
    - Docker 容器化
 
-## 环境准备
+## 环境准备 (推荐使用 uv)
 
-本教程基于 Python 3.10+。请确保安装了依赖：
+虽然你可以使用标准的 `pip`，但本教程强烈推荐使用 **uv** 来管理 Python 环境和依赖。`uv` 是一个极其快速的 Python 包安装器和解析器。
+
+### 1. 安装 uv
+
+Mac/Linux:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Windows:
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### 2. 初始化项目
+
+在你的工作目录下：
 
 ```bash
-pip install "fastapi[standard]"
+# 初始化一个新的 Python 项目
+uv init
+
+# 安装 FastAPI (包含标准依赖)
+uv add "fastapi[standard]"
+```
+
+这将会创建 `pyproject.toml` 和 `uv.lock` 文件，并自动设置虚拟环境。
+
+### 3. 安装其他依赖
+
+对于后续章节，你可能需要安装其他库：
+
+```bash
+uv add sqlalchemy websockets
+```
+
+## 常规安装方式 (pip)
+
+如果你不使用 `uv`，请确保安装了 Python 3.10+ 并运行：
+
+```bash
+pip install "fastapi[standard]" sqlalchemy websockets
 ```
 
 ## 如何使用本教程

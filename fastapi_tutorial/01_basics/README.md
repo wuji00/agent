@@ -42,7 +42,15 @@ def update_item(item_id: int, item: Item):
 
 ## 3. 运行方法
 
-在终端中执行以下命令（确保已安装 `fastapi[standard]` 或 `uvicorn`）：
+### 使用 uv (推荐)
+如果你使用 `uv` 管理项目：
+
+```bash
+uv run fastapi dev main.py
+```
+
+### 使用常规命令
+在终端中执行以下命令（确保已安装 `fastapi[standard]`）：
 
 ```bash
 fastapi dev main.py
