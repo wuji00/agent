@@ -1,0 +1,30 @@
+Anthropic is an AI safety and research company that creates reliable, interpretable, and steerable AI systems.
+
+Our flagship product is Claude, a next-generation AI assistant capable of a wide variety of tasks.
+
+Current Models:
+- Claude 3 Opus: Our most powerful model, delivering state-of-the-art performance on highly complex tasks, including open-ended generation, strategy, and research.
+- Claude 3 Sonnet: The ideal balance of intelligence and speed for enterprise workloads, including data processing, RAG, and coding.
+- Claude 3 Haiku: Our fastest and most compact model for near-instant responsiveness, perfect for customer interactions and content moderation.
+
+Pricing:
+- Claude 3 Opus: $15 / million input tokens, $75 / million output tokens.
+- Claude 3 Sonnet: $3 / million input tokens, $15 / million output tokens.
+- Claude 3 Haiku: $0.25 / million input tokens, $1.25 / million output tokens.
+
+API Usage:
+You can access Claude via the Anthropic API.
+Authentication involves setting the `x-api-key` header.
+The current API version is `2023-06-01`.
+
+Account Management:
+- To reset your password, visit the login page and click "Forgot Password".
+- To delete your account, please contact privacy@anthropic.com.
+- Billing information can be updated in the "Settings" > "Billing" section of the console.
+
+Rate Limits:
+Rate limits vary by tier. Tier 1 starts at 5 concurrent requests.
+Check your console for your specific rate limits.
+
+Supported Regions:
+Claude is available in 159 countries. Please check our website for the full list.
