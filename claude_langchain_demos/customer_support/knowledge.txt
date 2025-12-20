@@ -1,0 +1,9 @@
+Anthropic is an AI safety and research company based in San Francisco.
+Claude is a next-generation AI assistant built by Anthropic.
+Claude is capable of a wide variety of tasks, including writing, coding, summarization, and analysis.
+To update your billing information, go to the Settings page and click on Billing.
+You can manage your API keys in the Console.
+API rate limits depend on your tier. Tier 1 has a limit of 5 requests per minute.
+If you are experiencing technical issues, please check our status page at status.anthropic.com.
+Refunds are processed within 5-10 business days.
+To delete your account, please contact support@anthropic.com.
