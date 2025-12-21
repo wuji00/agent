@@ -1,0 +1,22 @@
+Anthropic API Documentation
+
+Authentication:
+To use the Anthropic API, you need an API key. You can get one from the Anthropic Console. Set the 'x-api-key' header in your requests.
+
+Models:
+- Claude 3 Opus: Most powerful model, best for complex tasks.
+- Claude 3 Sonnet: Balanced performance and speed.
+- Claude 3 Haiku: Fastest and most cost-effective model.
+- Claude 3.5 Sonnet: The latest model with improved intelligence and speed.
+
+Pricing:
+Pricing varies by model and token usage. Check the pricing page for the latest details.
+
+Rate Limits:
+Rate limits apply to your API usage. If you exceed them, you will receive a 429 error.
+
+Computer Use:
+Claude 3.5 Sonnet supports computer use, allowing it to interact with a computer interface.
+
+Prompt Engineering:
+Use clear and specific instructions. XML tags are helpful for structuring prompts.
