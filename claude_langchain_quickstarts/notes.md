@@ -1,0 +1,20 @@
+- Cloned anthropics/claude-quickstarts as reference.
+- Identified 4 demos: Customer Support Agent, Financial Data Analyst, Computer Use Demo, Browser Use Demo.
+- Created separate folders for each demo implementation.
+- Implemented Customer Support Agent using LangChain RAG (FAISS + HuggingFaceEmbeddings) and LangGraph.
+- Implemented Financial Data Analyst using LangGraph and structured output tool .
+- Implemented Computer Use Demo using LangGraph and mock tools.
+- Implemented Browser Use Demo using LangGraph and mock tools.
+- Created  with necessary dependencies.
+- Using  for simpler tasks and  for complex tool use.
+- Ensured code is robust to missing optional dependencies (like huggingface) with fallbacks where possible (though RAG requires it).
+- Cloned anthropics/claude-quickstarts as reference.
+- Identified 4 demos: Customer Support Agent, Financial Data Analyst, Computer Use Demo, Browser Use Demo.
+- Created separate folders for each demo implementation.
+- Implemented Customer Support Agent using LangChain RAG (FAISS + HuggingFaceEmbeddings) and LangGraph.
+- Implemented Financial Data Analyst using LangGraph and structured output tool `generate_graph_data`.
+- Implemented Computer Use Demo using LangGraph and mock tools.
+- Implemented Browser Use Demo using LangGraph and mock tools.
+- Created `requirements.txt` with necessary dependencies.
+- Using `claude-3-haiku` for simpler tasks and `claude-3-5-sonnet` for complex tool use.
+- Ensured code is robust to missing optional dependencies (like huggingface) with fallbacks where possible (though RAG requires it).
