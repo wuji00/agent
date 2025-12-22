@@ -1,0 +1,14 @@
+Anthropic offers Claude, a helpful AI assistant.
+You can access Claude via the API (api.anthropic.com) or the web console (console.anthropic.com).
+Billing is handled via Stripe. You can update payment methods in the Settings page of the console.
+API rate limits depend on your tier. Tier 1 has 5 requests per minute. Tier 2 has 1000 requests per minute.
+To delete your account, please contact support@anthropic.com with your account email.
+Claude 3 is the latest family of models, including Haiku, Sonnet, and Opus.
+Claude can process text and images.
+Use the Messages API to interact with Claude.
+You can use Tools (function calling) with Claude to connect to external data.
+Prompt caching helps reduce costs and latency for long prompts.
+Computer use is a beta feature allowing Claude to control a computer.
+Browser use is a new capability for web automation.
+Customer support is available 24/7 for Enterprise customers.
+For billing disputes, email billing@anthropic.com.

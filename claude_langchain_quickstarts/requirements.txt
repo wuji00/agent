@@ -1,0 +1,8 @@
+langchain
+langchain-community
+langgraph
+langchain-anthropic
+faiss-cpu
+sentence-transformers
+pandas
+numpy
