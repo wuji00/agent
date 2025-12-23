@@ -1,0 +1,77 @@
+Anthropic Claude API
+Amazon Bedrock Knowledge Bases
+LangChain and LangGraph
+Shadcn UI
+Next.js
+Python
+FastAPI
+Vector Database
+Embeddings
+RAG (Retrieval Augmented Generation)
+Customer Support Automation
+Sentiment Analysis
+Mood Detection
+Context Retrieval
+AI Agents
+Chat History
+Memory Management
+Token Limits
+Model Context Window
+Prompt Engineering
+Structured Output
+Tool Use
+Function Calling
+JSON Output
+Streaming Responses
+Latency Optimization
+Cost Management
+Security and Compliance
+GDPR
+HIPAA
+SOC2
+Encryption
+Access Control
+Role Based Access Control
+API Keys
+Environment Variables
+Cloud Deployment
+AWS Amplify
+Vercel
+Docker
+Kubernetes
+Serverless Functions
+Edge Computing
+WebSockets
+Real-time Communication
+User Experience
+User Interface Design
+Accessibility
+Internationalization
+Localization
+A/B Testing
+Analytics
+Monitoring
+Logging
+Error Handling
+Retry Mechanisms
+Rate Limiting
+Throttling
+Caching
+Database Indexing
+Query Optimization
+Full Text Search
+Semantic Search
+Hybrid Search
+Re-ranking
+Cross-Encoder
+Bi-Encoder
+Sparse Embeddings
+Dense Embeddings
+Vector Quantization
+HNSW
+IVF
+Product A: A premium coffee machine with built-in grinder.
+Product B: An ergonomic office chair with lumbar support.
+Product C: A noise-cancelling wireless headphone with 30h battery life.
+Product D: A smart thermostat that learns your schedule.
+Product E: A robot vacuum cleaner with mopping function.
