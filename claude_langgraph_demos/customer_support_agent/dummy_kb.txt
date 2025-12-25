@@ -1,0 +1,25 @@
+Anthropic Support Knowledge Base
+
+Account Issues
+To delete your account, please visit the settings page and click "Delete Account". Note that this action is irreversible.
+If you are having trouble logging in, please check your email for a verification code.
+If your account has been banned, you can submit an appeal through our support portal.
+
+Billing
+We accept major credit cards and PayPal. Invoices are generated at the end of each billing cycle.
+Refunds are processed within 5-10 business days.
+You can update your payment method in the Billing section of your dashboard.
+
+Technical Support
+If you are experiencing downtime, please check our status page at status.anthropic.com.
+For API integration issues, please refer to our documentation.
+If you encounter a bug, please report it via the "Report a Bug" button in the interface.
+
+Legal & Privacy
+We take data privacy seriously. Please review our Privacy Policy for more information.
+Our Terms of Service outline the acceptable use of our services.
+
+Features
+Claude allows you to upload documents for analysis.
+You can use the API to integrate Claude into your own applications.
+Team plans allow for shared workspaces and centralized billing.
