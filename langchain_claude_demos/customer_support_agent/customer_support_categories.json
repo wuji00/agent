@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": "technical_support",
+      "description": "Issues with the product not working as expected, bugs, errors."
+    },
+    {
+      "id": "billing",
+      "description": "Questions about payments, invoices, subscription plans."
+    },
+    {
+      "id": "account_management",
+      "description": "Password resets, account settings, profile updates."
+    },
+    {
+      "id": "feature_request",
+      "description": "Suggestions for new features or improvements."
+    },
+    {
+      "id": "general_inquiry",
+      "description": "General questions about the company or product."
+    }
+  ]
+}
