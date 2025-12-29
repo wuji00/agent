@@ -1,9 +1,49 @@
-Anthropic is an AI safety and research company based in San Francisco.
-Claude is a next-generation AI assistant built by Anthropic.
-Claude is capable of a wide variety of tasks, including writing, coding, summarization, and analysis.
-To update your billing information, go to the Settings page and click on Billing.
-You can manage your API keys in the Console.
-API rate limits depend on your tier. Tier 1 has a limit of 5 requests per minute.
-If you are experiencing technical issues, please check our status page at status.anthropic.com.
-Refunds are processed within 5-10 business days.
-To delete your account, please contact support@anthropic.com.
+Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.
+
+Our first product is Claude, an AI assistant for tasks at any scale.
+Our API offers access to our top-performing AI models.
+
+# Claude 3 Model Family
+
+The Claude 3 family of models offers the best combination of speed and performance for enterprise use cases, at a lower cost than other models on the market.
+
+## Claude 3.5 Sonnet
+Claude 3.5 Sonnet raises the industry bar for intelligence, outperforming competitor models and Claude 3 Opus on a wide range of evaluations, with the speed and cost of our mid-tier model, Claude 3 Sonnet.
+Input price: $3.00 / MTokens
+Output price: $15.00 / MTokens
+
+## Claude 3 Opus
+Claude 3 Opus is our most intelligent model, with best-in-market performance on highly complex tasks. It can navigate open-ended prompts and sight-unseen scenarios with remarkable fluency and human-like understanding.
+Input price: $15.00 / MTokens
+Output price: $75.00 / MTokens
+
+## Claude 3 Haiku
+Claude 3 Haiku is our fastest, most compact model for near-instant responsiveness. It answers simple queries and requests with unmatched speed.
+Input price: $0.25 / MTokens
+Output price: $1.25 / MTokens
+
+# Safety
+
+We build safety into our models from the ground up. We use a variety of techniques to ensure that our models are safe and reliable, including Constitutional AI.
+
+# Account & Billing
+
+## How do I update my billing information?
+You can update your billing information in the "Settings" > "Billing" section of the Console.
+
+## What payment methods do you accept?
+We accept all major credit cards.
+
+## How do I cancel my subscription?
+You can cancel your subscription at any time from the "Billing" page.
+
+## Where can I find my invoices?
+Invoices are emailed to the account owner and can also be downloaded from the "Billing" page.
+
+# Technical Support
+
+## API Rate Limits
+Rate limits depend on your tier. You can view your current rate limits in the Console.
+
+## How do I report a bug?
+If you find a bug, please email support@anthropic.com with details.

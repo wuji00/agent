@@ -47,3 +47,20 @@ def write_file(filename: str, content: str):
         return f"File {filename} written."
     except Exception as e:
         return f"Error writing file: {e}"
+
+@tool
+def delete_file(filename: str):
+    """Delete a file in the workspace."""
+    filepath = os.path.join(WORKSPACE_DIR, filename)
+
+    if not _is_safe_path(WORKSPACE_DIR, filepath):
+        return "Error: Access outside workspace denied."
+
+    if not os.path.exists(filepath):
+        return "File not found."
+
+    try:
+        os.remove(filepath)
+        return f"File {filename} deleted."
+    except Exception as e:
+        return f"Error deleting file: {e}"
