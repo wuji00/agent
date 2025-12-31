@@ -1,0 +1,8 @@
+Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.
+We build Claude, a next-generation AI assistant capable of a wide variety of tasks, no matter the scale.
+Claude 3.5 Sonnet is our most intelligent model.
+Claude 3 Haiku is our fastest model.
+Claude 3 Opus is our most capable model for highly complex tasks.
+You can use Claude on claude.ai, or via our API.
+API access requires an account and billing set up.
+We take data privacy very seriously.

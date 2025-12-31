@@ -1,0 +1,22 @@
+[project]
+name = "claude-demos-new"
+version = "0.1.0"
+description = "LangChain and LangGraph implementations of Claude Quickstarts"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=0.3.0",
+    "langgraph>=0.2.0",
+    "langchain-anthropic>=0.2.0",
+    "langchain-community>=0.3.0",
+    "langchain-text-splitters",
+    "python-dotenv",
+    "faiss-cpu",
+    "langchain-huggingface",
+    "sentence-transformers",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+    "ruff",
+]
