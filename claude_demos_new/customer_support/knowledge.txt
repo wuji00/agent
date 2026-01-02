@@ -1,0 +1,29 @@
+Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.
+
+Our flagship product is Claude, a next-generation AI assistant capable of a wide variety of tasks.
+
+Claude 3 family:
+- Claude 3 Opus: Our most intelligent model, which sets a new standard for intelligence across a wide range of cognitive tasks. It excels at open-ended questions, complex tasks, and high-level reasoning.
+- Claude 3 Sonnet: The ideal balance of intelligence and speed for enterprise workloads. It delivers strong performance at a lower cost than Opus and is designed for high-endurance AI deployments.
+- Claude 3 Haiku: Our fastest and most compact model for near-instant responsiveness. It answers simple queries and requests with unmatched speed.
+
+Key capabilities of Claude:
+- Content creation: Writing blog posts, emails, stories, code, and more.
+- Analysis: Summarizing documents, extracting information, and analyzing data.
+- Coding: Helping with software development, debugging, and explaining code.
+- Math and logic: Solving complex mathematical problems and logical reasoning tasks.
+- Vision: Analyzing images and charts.
+
+Pricing:
+- Claude 3 Opus: $15 / million input tokens, $75 / million output tokens.
+- Claude 3 Sonnet: $3 / million input tokens, $15 / million output tokens.
+- Claude 3 Haiku: $0.25 / million input tokens, $1.25 / million output tokens.
+
+API Access:
+Developers can access Claude models through the Anthropic API. To get started, sign up for an account at console.anthropic.com.
+
+Usage Limits:
+There are rate limits on the API usage depending on your tier. Please refer to the documentation for details.
+
+Data Privacy:
+Anthropic takes data privacy seriously. We do not train our models on customer data submitted to the API unless you explicitly opt-in.
