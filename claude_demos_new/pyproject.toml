@@ -1,0 +1,23 @@
+[project]
+name = "claude-demos-new"
+version = "0.1.0"
+description = "LangGraph implementations of Claude Quickstarts"
+requires-python = ">=3.9"
+dependencies = [
+    "langchain>=0.3.0",
+    "langchain-anthropic>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-huggingface>=0.1.0",
+    "langgraph>=0.2.0",
+    "faiss-cpu",
+    "sentence-transformers",
+    "langchain-text-splitters",
+    "python-dotenv",
+    "uvicorn",
+    "fastapi[standard]",
+    # For computer use
+    "anthropic[bedrock,vertex]",
+]
+
+[tool.setuptools]
+packages = ["claude_demos_new"]
