@@ -1,0 +1,18 @@
+[
+  {
+    "id": "technical_support",
+    "description": "Questions about technical issues, bugs, or system errors."
+  },
+  {
+    "id": "billing",
+    "description": "Questions about invoices, payments, subscriptions, or pricing."
+  },
+  {
+    "id": "product_info",
+    "description": "General questions about product features, specifications, or availability."
+  },
+  {
+    "id": "returns",
+    "description": "Questions about returns, refunds, or exchanges."
+  }
+]

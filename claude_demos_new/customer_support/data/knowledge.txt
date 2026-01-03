@@ -1,0 +1,22 @@
+Product: Acme Cloud Storage
+Acme Cloud Storage is a secure, cloud-based storage solution for individuals and businesses.
+Features include automatic backup, file sharing, and version history.
+Pricing:
+- Basic: Free, 5GB storage
+- Pro: $10/month, 1TB storage
+- Business: $25/month/user, unlimited storage
+
+Technical Support:
+If you are experiencing slow upload speeds, please check your internet connection.
+For login issues, ensure your caps lock is off and you are using the correct email address.
+To reset your password, click on the "Forgot Password" link on the login page.
+Our servers undergo maintenance every Sunday from 2 AM to 4 AM UTC.
+
+Billing:
+Invoices are sent via email on the 1st of every month.
+We accept credit cards (Visa, Mastercard, Amex) and PayPal.
+To cancel your subscription, go to Settings > Billing > Cancel Subscription.
+
+Returns/Refunds:
+We offer a 30-day money-back guarantee for Pro and Business plans.
+To request a refund, contact support@acme.com within 30 days of purchase.
