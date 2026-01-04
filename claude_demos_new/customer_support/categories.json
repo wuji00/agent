@@ -1,0 +1,22 @@
+[
+  {
+    "name": "General Inquiry",
+    "description": "General questions about Anthropic, Claude, or AI safety.",
+    "keywords": ["general", "anthropic", "claude", "safety", "company"]
+  },
+  {
+    "name": "Technical Support",
+    "description": "Questions about using the API, SDKs, or integration.",
+    "keywords": ["api", "sdk", "python", "typescript", "integration", "code", "error"]
+  },
+  {
+    "name": "Billing & Account",
+    "description": "Questions about pricing, payments, or account management.",
+    "keywords": ["billing", "price", "cost", "account", "payment", "credits"]
+  },
+  {
+    "name": "Product Features",
+    "description": "Questions about specific capabilities like computer use, coding, etc.",
+    "keywords": ["feature", "capability", "computer use", "coding", "vision"]
+  }
+]
