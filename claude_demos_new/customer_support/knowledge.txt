@@ -1,0 +1,41 @@
+Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.
+We want AI to be helpful, honest, and harmless.
+Our first product is Claude, an AI assistant.
+Claude is capable of a wide variety of tasks, including coding, writing, analysis, and more.
+Claude is available via API and a chat interface at claude.ai.
+Claude 3 is our latest model family, featuring Haiku, Sonnet, and Opus.
+Claude 3.5 Sonnet is our most intelligent and capable model to date.
+You can use Claude for customer support, content creation, coding assistance, and much more.
+Anthropic was founded in 2021 by former OpenAI researchers.
+We believe that AI has the potential to be a powerful tool for good.
+Safety is at the core of everything we do.
+Constitutional AI is a technique we developed to train AI systems to be helpful and harmless.
+We are based in San Francisco, California.
+Our API offers competitive pricing and high performance.
+You can find documentation at docs.anthropic.com.
+If you have billing questions, please contact support@anthropic.com.
+Claude can process large amounts of text, making it ideal for document summarization.
+We are constantly improving our models and adding new features.
+Stay tuned for updates on our blog.
+The computer use capability allows Claude to interact with computers like a human.
+This feature is currently in beta.
+Financial analysis is another strong use case for Claude.
+Claude can help analyze market trends and generate reports.
+ Autonomous coding agents can help automate development workflows.
+We offer SDKs for Python and TypeScript.
+LangChain and LangGraph are popular frameworks for building applications with Claude.
+Our quickstarts repository provides examples of how to use Claude in various scenarios.
+Customer support agents can be built using RAG (Retrieval Augmented Generation).
+Vector databases like FAISS or Chroma can be used to store knowledge.
+Embeddings are used to represent text numerically for semantic search.
+LangGraph allows for building stateful, multi-step agents.
+Human-in-the-loop workflows are supported by LangGraph.
+Checkpoints allow you to save and resume agent state.
+Subgraphs enable modular agent design.
+We recommend using the latest version of our SDKs.
+API keys should be kept secret and not shared.
+Rate limits apply to API usage.
+You can monitor your usage in the console.
+We value user feedback and use it to improve our products.
+Join our Discord community to connect with other developers.
+Happy building!
