@@ -19,9 +19,14 @@ This repository contains LangGraph implementations of the demos found in `anthro
     *   Description: A demonstration of the Computer Use beta (mocked execution).
     *   Run: `python agent.py`.
 
-4.  **Browser Use Demo**:
+4.  **Autonomous Coding**:
+    *   Location: `autonomous_coding/`
+    *   Description: An agent that implements features based on a spec, verifying them with tools (File system + Mock Browser).
+    *   Run: `python agent.py` (ensure you are in the directory or set PYTHONPATH).
+
+5.  **Browser Use Demo**:
     *   Location: `browser_use_demo/`
-    *   Description: A demonstration of browser automation (mocked execution).
+    *   Description: A simpler demonstration of browser automation (mocked execution).
     *   Run: `python agent.py`.
 
 ## Requirements
