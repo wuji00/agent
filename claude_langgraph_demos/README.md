@@ -4,25 +4,30 @@ This repository contains LangGraph implementations of the demos found in `anthro
 
 ## Demos
 
-1.  **Customer Support Agent**:
+1.  **Autonomous Coding Agent**:
+    *   Location: `autonomous_coding/`
+    *   Description: A long-running agent that plans and implements code features.
+    *   Run: `python -m claude_langgraph_demos.autonomous_coding.main`
+
+2.  **Customer Support Agent**:
     *   Location: `customer_support_agent/`
     *   Description: A RAG-based support agent using FAISS and Claude.
-    *   Run: `python setup_kb.py` then `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.customer_support_agent.agent` (after setup)
 
-2.  **Financial Data Analyst**:
+3.  **Financial Data Analyst**:
     *   Location: `financial_data_analyst/`
     *   Description: An agent that uses a tool to generate financial charts.
-    *   Run: `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.financial_data_analyst.agent`
 
-3.  **Computer Use Demo**:
+4.  **Computer Use Demo**:
     *   Location: `computer_use_demo/`
     *   Description: A demonstration of the Computer Use beta (mocked execution).
-    *   Run: `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.computer_use_demo.agent`
 
-4.  **Browser Use Demo**:
+5.  **Browser Use Demo**:
     *   Location: `browser_use_demo/`
     *   Description: A demonstration of browser automation (mocked execution).
-    *   Run: `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.browser_use_demo.agent`
 
 ## Requirements
 
@@ -42,4 +47,15 @@ This repository contains LangGraph implementations of the demos found in `anthro
 2.  Set API Key:
     ```bash
     export ANTHROPIC_API_KEY=sk-ant-...
+    ```
+
+3.  Set PYTHONPATH (if running modules directly from root):
+    ```bash
+    export PYTHONPATH=$PYTHONPATH:.
+    ```
+
+4.  For Customer Support Agent, run the setup first:
+    ```bash
+    cd claude_langgraph_demos/customer_support_agent
+    python setup_kb.py
     ```

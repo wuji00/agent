@@ -1,5 +1,11 @@
-import json
-from typing import Annotated, TypedDict, List, Literal, Optional, Dict, Any
+"""
+Browser Use Demo (Mock)
+=======================
+
+A demonstration of browser automation using mock tools.
+"""
+
+from typing import Annotated, TypedDict, List, Literal, Optional
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, ToolMessage
 from langgraph.graph import StateGraph, START, END
@@ -9,32 +15,36 @@ from langchain_core.tools import tool
 # --- Mock Tools ---
 
 @tool
-def browser_tool(
-    action: Literal["navigate", "click", "type", "scroll", "screenshot", "get_html"],
-    url: Optional[str] = None,
-    selector: Optional[str] = None,
-    text: Optional[str] = None,
-    coordinate: Optional[List[int]] = None
-):
+def navigate_browser(url: str):
     """
-    Interact with a web browser.
-
-    actions:
-    - navigate: Go to a URL.
-    - click: Click on an element (by selector or coordinate).
-    - type: Type text into an element.
-    - scroll: Scroll the page.
-    - screenshot: Take a screenshot.
-    - get_html: Get the HTML content.
+    Navigate the browser to a specific URL.
     """
-    print(f"[MOCK TOOL] browser: action={action}, url={url}, selector={selector}")
+    print(f"[MOCK TOOL] Navigating to: {url}")
+    return f"Navigated to {url}. Page loaded."
 
-    if action == "navigate":
-        return f"Navigated to {url}"
-    elif action == "get_html":
-        return "<html><body><h1>Mock Page</h1></body></html>"
+@tool
+def click_element(selector: str):
+    """
+    Click an element on the page identified by a CSS selector.
+    """
+    print(f"[MOCK TOOL] Clicking element: {selector}")
+    return f"Clicked {selector}."
 
-    return "Action executed successfully."
+@tool
+def type_text(selector: str, text: str):
+    """
+    Type text into an input field identified by a CSS selector.
+    """
+    print(f"[MOCK TOOL] Typing '{text}' into {selector}")
+    return f"Typed '{text}' into {selector}."
+
+@tool
+def read_page_content():
+    """
+    Read the text content of the current page.
+    """
+    print("[MOCK TOOL] Reading page content")
+    return "This is the content of the page. It contains a form with a username and password field."
 
 # --- State ---
 
@@ -46,12 +56,14 @@ class AgentState(TypedDict):
 def call_model(state: AgentState):
     messages = state["messages"]
 
-    system_prompt = """You are an agent equipped with a browser tool. You can use it to navigate the web and extract information.
+    system_prompt = """You are a browser automation agent. You can navigate the web, click elements, type text, and read content.
+    Since this is a demo, you are operating in a simulated environment where tools just log their actions.
 
-    When asked to look up something, use the `browser_tool` to navigate to relevant websites."""
+    Your goal is to help the user perform tasks on the web.
+    """
 
-    llm = ChatAnthropic(model="claude-3-5-sonnet-20241022", temperature=0.5)
-    llm_with_tools = llm.bind_tools([browser_tool])
+    llm = ChatAnthropic(model="claude-3-5-sonnet-20241022", temperature=0)
+    llm_with_tools = llm.bind_tools([navigate_browser, click_element, type_text, read_page_content])
 
     from langchain_core.messages import SystemMessage
     prompt_messages = [SystemMessage(content=system_prompt)] + messages
@@ -70,7 +82,7 @@ def should_continue(state: AgentState):
 
 workflow = StateGraph(AgentState)
 workflow.add_node("agent", call_model)
-tool_node = ToolNode([browser_tool])
+tool_node = ToolNode([navigate_browser, click_element, type_text, read_page_content])
 workflow.add_node("tools", tool_node)
 
 workflow.add_edge(START, "agent")
@@ -91,15 +103,12 @@ if __name__ == "__main__":
         state = {"messages": messages}
 
         print("... thinking ...")
-        try:
-            for event in app.stream(state):
-                for key, value in event.items():
-                    if key == "agent":
-                        msg = value["messages"][0]
-                        if msg.tool_calls:
-                            print(f"Tool Call: {msg.tool_calls[0]['name']}")
-                        else:
-                            print(f"Assistant: {msg.content}")
-                            messages.append(msg)
-        except Exception as e:
-            print(f"Error: {e}")
+        for event in app.stream(state):
+             for key, value in event.items():
+                if key == "agent":
+                    msg = value["messages"][0]
+                    if msg.tool_calls:
+                        print(f"Tool Call: {msg.tool_calls[0]['name']}")
+                    else:
+                        print(f"Assistant: {msg.content}")
+                        messages.append(msg)
