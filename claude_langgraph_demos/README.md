@@ -7,22 +7,35 @@ This repository contains LangGraph implementations of the demos found in `anthro
 1.  **Customer Support Agent**:
     *   Location: `customer_support_agent/`
     *   Description: A RAG-based support agent using FAISS and Claude.
-    *   Run: `python setup_kb.py` then `python agent.py`.
+    *   Run:
+        ```bash
+        cd customer_support_agent
+        python setup_kb.py # First time only
+        python agent.py
+        ```
 
 2.  **Financial Data Analyst**:
     *   Location: `financial_data_analyst/`
     *   Description: An agent that uses a tool to generate financial charts.
-    *   Run: `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.financial_data_analyst.agent` (from root)
 
 3.  **Computer Use Demo**:
     *   Location: `computer_use_demo/`
     *   Description: A demonstration of the Computer Use beta (mocked execution).
-    *   Run: `python agent.py`.
+    *   Run: `python -m claude_langgraph_demos.computer_use_demo.agent` (from root)
 
-4.  **Browser Use Demo**:
-    *   Location: `browser_use_demo/`
-    *   Description: A demonstration of browser automation (mocked execution).
-    *   Run: `python agent.py`.
+4.  **Autonomous Coding Agent**:
+    *   Location: `autonomous_coding/`
+    *   Description: An agent that can initialize and implement a coding project autonomously.
+    *   Run:
+        ```bash
+        # Run from root directory
+        python -m claude_langgraph_demos.autonomous_coding.main --project-dir workspace
+        ```
+    *   Features:
+        *   Initializer Prompt: Creates a feature list from `app_spec.txt`.
+        *   Coding Prompt: Implements features iteratively.
+        *   Tools: File read/write, bash execution (restricted).
 
 ## Requirements
 
@@ -34,8 +47,6 @@ This repository contains LangGraph implementations of the demos found in `anthro
 
 1.  Install dependencies:
     ```bash
-    uv sync
-    # OR
     pip install -r requirements.txt
     ```
 

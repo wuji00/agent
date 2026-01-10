@@ -1,4 +1,6 @@
 import platform
+import os
+import sys
 from typing import Annotated, TypedDict, List, Literal, Optional, Union, Dict, Any
 from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, ToolMessage
@@ -8,9 +10,6 @@ from langchain_core.tools import tool
 import asyncio
 
 # --- Mock Tools ---
-# Since we are not in a full desktop environment (or at least one we can easily control via X11 in this sandbox properly),
-# we will mock the computer use tools to demonstrate the agent loop.
-# The memory says: "Computer Use capabilities should be demonstrated using mock tools (logging actions without execution) in environments where a real GUI is unavailable."
 
 @tool
 def computer(
@@ -92,14 +91,6 @@ def call_model(state: AgentState):
 </IMPORTANT>
 """
 
-    # We need to enable the "computer-use-2024-10-22" beta.
-    # ChatAnthropic supports 'model_kwargs' which can include 'extra_headers' or 'betas'??
-    # Actually, ChatAnthropic has a `model` parameter, and we can pass `extra_body` or similar.
-    # But `langchain-anthropic` handles beta headers if we use the right model?
-    # No, we usually need to specify it.
-
-    # In langchain-anthropic, we can pass `model_kwargs`.
-
     llm = ChatAnthropic(
         model="claude-3-5-sonnet-20241022",
         temperature=0.0,
@@ -109,16 +100,6 @@ def call_model(state: AgentState):
             }
         }
     )
-
-    # Bind tools. Note: For computer use, the structure is specific.
-    # However, since we defined standard tools, we can just bind them.
-    # But wait, the 'computer' tool has a special shape in the API.
-    # The `computer` tool definition we wrote uses `type`, `coordinate` etc.
-    # If we use `bind_tools`, LangChain converts Python function to tool schema.
-    # This might differ slightly from the official "computer" tool spec Anthropic expects.
-    # But for a demo using LangChain, using standard tool calling is the way to go unless we manually construct the tool definition.
-    # The prompt caching and specific image handling might be complex to replicate exactly in standard LangGraph without more custom logic.
-    # For this demo, we use standard LangChain tool binding which maps to "tool_use".
 
     llm_with_tools = llm.bind_tools([computer, bash, str_replace_editor])
 
@@ -149,26 +130,86 @@ workflow.add_edge("tools", "agent")
 app = workflow.compile()
 
 if __name__ == "__main__":
+    from langchain_core.runnables import RunnableLambda
+
+    # Fake LLM for testing
+    class FakeLLM:
+        def bind_tools(self, tools, **kwargs):
+            return self
+
+        def invoke(self, input, config=None):
+             messages = input if isinstance(input, list) else input.get("messages", [])
+             last_msg = messages[-1]
+             if "screenshot" in last_msg.content.lower():
+                 return AIMessage(content="Taking a screenshot.", tool_calls=[
+                     {"name": "computer", "args": {
+                         "action": "screenshot"
+                     }, "id": "call_1"}
+                 ])
+             elif isinstance(last_msg, ToolMessage):
+                 return AIMessage(content="Here is the result.")
+             else:
+                 return AIMessage(content="Ready.")
+
+    # Mock ChatAnthropic for test mode
+    if os.environ.get("TEST_MODE"):
+        print("Running in TEST MODE")
+        global ChatAnthropic
+        ChatAnthropic = lambda **kwargs: FakeLLM()
+
     print("Computer Use Demo (Mock) - Type 'quit' to exit")
     messages = []
-    while True:
-        user_input = input("User: ")
-        if user_input.lower() in ["quit", "exit"]:
-            break
 
-        messages.append(HumanMessage(content=user_input))
-        state = {"messages": messages}
-
-        print("... thinking ...")
+    # Non-interactive mode handling
+    import select
+    if select.select([sys.stdin,],[],[],0.0)[0]:
         try:
-            for event in app.stream(state):
-                for key, value in event.items():
-                    if key == "agent":
-                        msg = value["messages"][0]
-                        if msg.tool_calls:
-                            print(f"Tool Call: {msg.tool_calls[0]['name']}")
-                        else:
-                            print(f"Assistant: {msg.content}")
-                            messages.append(msg)
+            while True:
+                line = sys.stdin.readline()
+                if not line:
+                    break
+                user_input = line.strip()
+                if not user_input or user_input.lower() in ["quit", "exit"]:
+                    break
+
+                print(f"User: {user_input}")
+                messages.append(HumanMessage(content=user_input))
+                state = {"messages": messages}
+
+                print("... thinking ...")
+                for event in app.stream(state):
+                    for key, value in event.items():
+                        if key == "agent":
+                            msg = value["messages"][0]
+                            if msg.tool_calls:
+                                print(f"Tool Call: {msg.tool_calls[0]['name']}")
+                            else:
+                                print(f"Assistant: {msg.content}")
+                                messages.append(msg)
         except Exception as e:
             print(f"Error: {e}")
+    else:
+        while True:
+            try:
+                user_input = input("User: ")
+            except EOFError:
+                break
+            if user_input.lower() in ["quit", "exit"]:
+                break
+
+            messages.append(HumanMessage(content=user_input))
+            state = {"messages": messages}
+
+            print("... thinking ...")
+            try:
+                for event in app.stream(state):
+                    for key, value in event.items():
+                        if key == "agent":
+                            msg = value["messages"][0]
+                            if msg.tool_calls:
+                                print(f"Tool Call: {msg.tool_calls[0]['name']}")
+                            else:
+                                print(f"Assistant: {msg.content}")
+                                messages.append(msg)
+            except Exception as e:
+                print(f"Error: {e}")
