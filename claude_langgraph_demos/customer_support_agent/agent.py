@@ -124,28 +124,80 @@ app = workflow.compile()
 if __name__ == "__main__":
     # Test the agent
     import sys
+    from langchain_core.runnables import RunnableLambda
+
+    # Fake LLM for testing
+    class FakeLLM:
+        def with_structured_output(self, schema):
+            return RunnableLambda(lambda x: AgentResponse(
+                thinking="I should help the user.",
+                response="To reset your password, please go to settings.",
+                user_mood="neutral",
+                suggested_questions=["How do I log in?"],
+                debug={},
+                matched_categories=["account"],
+                redirect_to_agent=None
+            ))
+
+    # Mock ChatAnthropic for test mode
+    if os.environ.get("TEST_MODE"):
+        print("Running in TEST MODE")
+        # Monkey patch ChatAnthropic
+        global ChatAnthropic
+        ChatAnthropic = lambda **kwargs: FakeLLM()
 
     # Basic interactive loop
     print("Customer Support Agent (Type 'quit' to exit)")
     messages = []
 
-    while True:
-        user_input = input("User: ")
-        if user_input.lower() in ["quit", "exit"]:
-            break
+    # Non-interactive mode handling
+    import select
+    if select.select([sys.stdin,],[],[],0.0)[0]:
+        # Input available
+        try:
+            while True:
+                line = sys.stdin.readline()
+                if not line:
+                    break
+                user_input = line.strip()
+                if not user_input or user_input.lower() in ["quit", "exit"]:
+                    break
 
-        messages.append(HumanMessage(content=user_input))
+                print(f"User: {user_input}")
+                messages.append(HumanMessage(content=user_input))
 
-        state = {"messages": messages, "context": "", "final_response": None}
-        result = app.invoke(state)
+                state = {"messages": messages, "context": "", "final_response": None}
+                result = app.invoke(state)
 
-        final_resp = result["final_response"]
-        print(f"Assistant: {final_resp.response}")
-        print(f"Thinking: {final_resp.thinking}")
-        print(f"Mood: {final_resp.user_mood}")
-        if final_resp.matched_categories:
-            print(f"Categories: {final_resp.matched_categories}")
-        if final_resp.redirect_to_agent and final_resp.redirect_to_agent.should_redirect:
-            print(f"REDIRECT: {final_resp.redirect_to_agent.reason}")
+                final_resp = result["final_response"]
+                print(f"Assistant: {final_resp.response}")
+                print(f"Thinking: {final_resp.thinking}")
+                print(f"Mood: {final_resp.user_mood}")
+        except Exception as e:
+            print(f"Error: {e}")
 
-        messages.append(AIMessage(content=final_resp.response))
+    else:
+        # Interactive mode
+        while True:
+            try:
+                user_input = input("User: ")
+            except EOFError:
+                break
+            if user_input.lower() in ["quit", "exit"]:
+                break
+
+            messages.append(HumanMessage(content=user_input))
+
+            state = {"messages": messages, "context": "", "final_response": None}
+            result = app.invoke(state)
+
+            final_resp = result["final_response"]
+            print(f"Assistant: {final_resp.response}")
+            print(f"Thinking: {final_resp.thinking}")
+            print(f"Mood: {final_resp.user_mood}")
+            if final_resp.matched_categories:
+                print(f"Categories: {final_resp.matched_categories}")
+            if final_resp.redirect_to_agent and final_resp.redirect_to_agent.should_redirect:
+                print(f"REDIRECT: {final_resp.redirect_to_agent.reason}")
+
+            messages.append(AIMessage(content=final_resp.response))
